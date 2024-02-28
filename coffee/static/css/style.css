@@ -1,0 +1,14 @@
+.sticky-top.menu {
+    background: #9a2a2a;
+}
+.form-css {
+    text-shadow: 0 0 white;
+    text-shadow: 2px 2px #FF0000;
+    color: #fff;
+}
+.form-style {
+    padding: 50px;
+    background: #0009;
+    box-shadow: 5px 1px 9px 1px #fff;
+    color: #fff;
+}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block 'main' %}
+{% load static %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h5 class="bg-danger" style="text-align: center;">Customer Details</h5>
+            <p><strong>Email: </strong></p>
+            <h5 class="bg-danger" style="text-align: center;">Cart Details</h5>
+            <div class="row">
+                {% for Product in products %}
+                <div class="col-md-4">
+                    <img src="{{Product.pid.pimage.url}}" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-8">
+                    <p><strong>Name :{{Product.pid.name}}</strong></p>
+                    <p><strong>Price :{{Product.pid.price}}</strong></p>
+                    <p><strong>Product Details :{{Product.pid.pdetails}}</strong></p>
+                    <p><strong>Quantity : </strong>
+                        <a href="/updateqty/0/{{Product.id}}"><button class="btn btn-danger">-</button></a>
+                    
+                    <input type="number" value="{{Product.quantity}}">
+                    <a href="/updateqty/1/{{Product.id}}"><button class="btn btn-success">+</button></a>
+                </p>
+                <a href="/remove/{{Product.id}}"><button class="btn btn-danger">Remove</button></a>
+                <a href="/"><button class="btn btn-danger">Add More</button></a>
+
+
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <h5 class="bg-danger" style="text-align: center">Total Amount</h5>
+            <p><strong>Total ({{np}} items) {{total}}</strong></p>
+            <a href="/placeorder"><button class="btn btn-danger">Place order</button></a>
+
+        </div>
+    </div>
+</div>
+
+{% endblock 'main' %}
